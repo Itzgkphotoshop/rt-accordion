@@ -1,21 +1,27 @@
 {
-  "name": "@rethink-js/rt-*",
+  "name": "@rethink-js/rt-accordion",
   "version": "1.0.0",
-  "description": "",
+  "description": "A robust, accessible, and smooth vanilla JavaScript accordion component.",
   "keywords": [
     "javascript",
-    "rethink-js"
+    "rethink-js",
+    "accordion",
+    "ui",
+    "component",
+    "accessible",
+    "vanilla-js",
+    "collapse"
   ],
   "author": "Rethink JS <opensource@rethink-js.org> (https://github.com/Rethink-JS)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rethink-JS/rt-*.git"
+    "url": "git+https://github.com/Rethink-JS/rt-accordion.git"
   },
   "bugs": {
-    "url": "https://github.com/Rethink-JS/rt-*/issues"
+    "url": "https://github.com/Rethink-JS/rt-accordion/issues"
   },
-  "homepage": "https://github.com/Rethink-JS/rt-*#readme",
+  "homepage": "https://github.com/Rethink-JS/rt-accordion#readme",
   "main": "dist/index.js",
   "unpkg": "dist/index.min.js",
   "jsdelivr": "dist/index.min.js",
