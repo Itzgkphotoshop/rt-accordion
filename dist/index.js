@@ -1,4 +1,4 @@
-/*! @rethink-js/rt-accordion v1.1.0 | MIT */
+/*! @rethink-js/rt-accordion v1.2.0 | MIT */
 (() => {
   // src/index.js
   (function() {
@@ -29,7 +29,7 @@
     }
     function getConf(root) {
       var mode = (getAttr(root, "mode") || "single").toLowerCase();
-      var defaultOpen = (getAttr(root, "default-open") || "first").toLowerCase();
+      var defaultOpen = (getAttr(root, "default-open") || "1").toLowerCase();
       return {
         item: "[data-rt-accordion-item], [rt-accordion-item]",
         trigger: "[data-rt-accordion-trigger], [rt-accordion-trigger]",
@@ -122,6 +122,16 @@
     };
     Accordion.prototype.initItems = function() {
       var self = this;
+      var targetIndices = [];
+      if (self.conf.defaultOpen !== "all" && self.conf.defaultOpen !== "none") {
+        var parts = self.conf.defaultOpen.split(",");
+        for (var i = 0; i < parts.length; i++) {
+          var num = parseInt(parts[i].trim(), 10);
+          if (!isNaN(num)) {
+            targetIndices.push(num - 1);
+          }
+        }
+      }
       this.items.forEach(function(item, index) {
         var triggerEl = item.querySelector(self.conf.trigger);
         var contentEl = item.querySelector(self.conf.content);
@@ -140,7 +150,8 @@
         triggerEl.setAttribute("aria-controls", contentEl.id);
         contentEl.setAttribute("aria-labelledby", triggerEl.id);
         var forcedOpen = hasAttr(item, "open");
-        var openInitially = forcedOpen || self.conf.defaultOpen === "all" || self.conf.defaultOpen === "first" && index === 0;
+        var isTargetIndex = targetIndices.indexOf(index) > -1;
+        var openInitially = forcedOpen || self.conf.defaultOpen === "all" || isTargetIndex;
         self.setItemOpen(item, triggerEl, contentEl, openInitially, true);
       });
     };

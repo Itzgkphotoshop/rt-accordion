@@ -37,15 +37,11 @@
 
 ### 1.1 CDN (jsDelivr)
 
-```html
 <script src="https://cdn.jsdelivr.net/npm/@rethink-js/rt-accordion@latest/dist/index.min.js"></script>
-```
 
 ### 1.2 npm
 
-```bash
 npm install @rethink-js/rt-accordion
-```
 
 Then bundle or load `dist/index.min.js` as appropriate for your build setup.
 
@@ -61,7 +57,7 @@ Add the script to your page. With no configuration provided, `rt-accordion` will
 
 Example HTML structure:
 
-```html
+```
 <div rt-accordion>
   <div rt-accordion-item>
     <button rt-accordion-trigger>Toggle Item</button>
@@ -72,7 +68,7 @@ Example HTML structure:
 </div>
 ```
 
-> Note: If you do not provide any `rt-accordion-mode` or `rt-accordion-default-open` attributes, the library runs using its internal defaults (`single` mode, `first` item open).
+> Note: If you do not provide any `rt-accordion-mode` or `rt-accordion-default-open` attributes, the library runs using its internal defaults (`single` mode, `1` (first item) open).
 
 ---
 
@@ -88,7 +84,7 @@ The library activates automatically when it detects the `rt-accordion` (or `data
 
 You can use either standard `rt-accordion-*` attributes or strict HTML5 `data-rt-accordion-*` attributes.
 
-```html
+```
 <div rt-accordion rt-accordion-mode="multiple" rt-accordion-default-open="all">
   ...
 </div>
@@ -96,18 +92,18 @@ You can use either standard `rt-accordion-*` attributes or strict HTML5 `data-rt
 
 ### Core Wrapper Attributes
 
-| Attribute                   | Description                                                         |
-| --------------------------- | ------------------------------------------------------------------- |
-| `rt-accordion`              | Enables accordion behavior on the wrapper.                          |
-| `rt-accordion-id`           | Optional unique identifier (auto-generated if missing).             |
-| `rt-accordion-mode`         | Defines toggle behavior. Values: `single` (default) or `multiple`.  |
-| `rt-accordion-default-open` | Defines initial state. Values: `first` (default), `all`, or `none`. |
+| Attribute                   | Description                                                                                                                            |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `rt-accordion`              | Enables accordion behavior on the wrapper.                                                                                             |
+| `rt-accordion-id`           | Optional unique identifier (auto-generated if missing).                                                                                |
+| `rt-accordion-mode`         | Defines toggle behavior. Values: `single` (default) or `multiple`.                                                                     |
+| `rt-accordion-default-open` | Defines initial state. Values: `1` (default), `all`, `none`, a specific number (e.g., `3`), or comma-separated numbers (e.g., `2, 4`). |
 
 ---
 
 ### Per-Instance Configuration (Inside the Accordion)
 
-```html
+```
 <div rt-accordion-item rt-accordion-open>
   <button rt-accordion-trigger>
     Read More <span rt-accordion-expanded-text="Read Less"></span>
@@ -128,7 +124,7 @@ You can use either standard `rt-accordion-*` attributes or strict HTML5 `data-rt
 
 ### Advanced JSON Options
 
-```html
+```
 <div rt-accordion rt-accordion-options-json='{"key":"value"}'></div>
 ```
 
@@ -152,9 +148,7 @@ Each instance:
 
 Once initialized, you can interact with the accordions programmatically:
 
-```js
 window.rtAccordion;
-```
 
 ### Common Methods
 

@@ -35,7 +35,8 @@
 
   function getConf(root) {
     var mode = (getAttr(root, "mode") || "single").toLowerCase();
-    var defaultOpen = (getAttr(root, "default-open") || "first").toLowerCase();
+    // Changed the default fallback from "first" to "1"
+    var defaultOpen = (getAttr(root, "default-open") || "1").toLowerCase();
 
     return {
       item: "[data-rt-accordion-item], [rt-accordion-item]",
@@ -168,6 +169,19 @@
 
   Accordion.prototype.initItems = function () {
     var self = this;
+    var targetIndices = [];
+
+    // Removed the "first" check so "1" falls right into the number parser
+    if (self.conf.defaultOpen !== "all" && self.conf.defaultOpen !== "none") {
+      var parts = self.conf.defaultOpen.split(",");
+      for (var i = 0; i < parts.length; i++) {
+        var num = parseInt(parts[i].trim(), 10);
+        if (!isNaN(num)) {
+          // Subtract 1 to convert from 1-based user input to 0-based array index
+          targetIndices.push(num - 1);
+        }
+      }
+    }
 
     this.items.forEach(function (item, index) {
       var triggerEl = item.querySelector(self.conf.trigger);
@@ -192,10 +206,11 @@
       contentEl.setAttribute("aria-labelledby", triggerEl.id);
 
       var forcedOpen = hasAttr(item, "open");
+      var isTargetIndex = targetIndices.indexOf(index) > -1;
+
+      // Removed the fallback check for "first" here as well
       var openInitially =
-        forcedOpen ||
-        self.conf.defaultOpen === "all" ||
-        (self.conf.defaultOpen === "first" && index === 0);
+        forcedOpen || self.conf.defaultOpen === "all" || isTargetIndex;
 
       self.setItemOpen(item, triggerEl, contentEl, openInitially, true);
     });
