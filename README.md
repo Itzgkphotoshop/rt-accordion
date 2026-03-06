@@ -37,11 +37,15 @@
 
 ### 1.1 CDN (jsDelivr)
 
+```
 <script src="https://cdn.jsdelivr.net/npm/@rethink-js/rt-accordion@latest/dist/index.min.js"></script>
+```
 
 ### 1.2 npm
 
+```
 npm install @rethink-js/rt-accordion
+```
 
 Then bundle or load `dist/index.min.js` as appropriate for your build setup.
 
@@ -148,7 +152,9 @@ Each instance:
 
 Once initialized, you can interact with the accordions programmatically:
 
+```
 window.rtAccordion;
+```
 
 ### Common Methods
 
